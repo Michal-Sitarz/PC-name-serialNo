@@ -19,7 +19,7 @@ REM ===========================================
 
 REM -----------------------------------------------------------
 REM --- add prefix depending on the computer manufacturer:  ---
-REM --- H for HP, D for Dell								---
+REM --- H for HP, D for Dell                                ---
 REM -----------------------------------------------------------
 
 REM // check the manufacturer
