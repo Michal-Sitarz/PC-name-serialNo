@@ -1,6 +1,6 @@
 
 # generated serial.txt file
-serial.txt
+*.txt
 
 # temp .batch file
-tmp.bat
+tmp.*
