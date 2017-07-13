@@ -1,7 +1,7 @@
 # PC-name-serialNo
 
 <b>Description:</b>
-<br>Small script to obtain modified serial number used as a computer name.
+<br>Small script to obtain modified serial number used for a computer name.
 <br>Future iteration will set a computer name automatically and join the company's domain, if possible.
 <br>
 <br>The script has been created during Internship in IT department of Tokheim Dundee Manufacturing Centre
