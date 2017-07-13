@@ -11,8 +11,11 @@ REM ===================================
 
 REM // obtain a value of a serial number 
 REM // and set it to the variable: %serial%
-FOR /f "tokens=2 delims==" %%f IN ('wmic bios get serialnumber /value ^| find "="') DO SET "serial=%%f"
+FOR /f "tokens=2 delims==" %%f IN ('wmic bios get serialnumber /value ^| FIND "="') DO SET "serial=%%f"
 
+
+REM /// add MANUFACTURER's PREFIX functionality
+REM ===========================================
 
 REM -----------------------------------------------------------
 REM --- add prefix depending on the computer manufacturer:  ---
@@ -20,10 +23,18 @@ REM --- H for HP, D for Dell								---
 REM -----------------------------------------------------------
 
 REM // check the manufacturer
-FOR /f "tokens=2 delims==" %%m IN ('wmic bios get manufacturer /value ^| find "="') DO SET "manufacturer=%%m"
+FOR /f "tokens=2 delims==" %%m IN ('wmic bios get manufacturer /value ^| FIND "="') DO SET "manufacturer=%%m"
 
+REM // set the right prefix for corresponding manufacturer,
+REM // if accidentally used other than approved manufacturers, then use "Other" as a prefix
 
-SET prefix=%manufacturer%
+IF %manufacturer% == HP (
+	SET prefix=H
+	) ELSE IF %manufacturer% == Dell (
+			SET prefix=D
+			) ELSE (
+				SET prefix=Other
+				) 
 
 REM // merge prefix with generated serial number
 SET serial=%prefix%%serial%
