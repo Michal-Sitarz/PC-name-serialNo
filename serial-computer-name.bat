@@ -4,8 +4,8 @@ REM // change computername
 
 ECHO %COMPUTERNAME%
 
-SET bang=TokName123
+SET newName=TokName123
 
-wmic computersystem where name="%COMPUTERNAME%" call rename name="%bang%"
+wmic computersystem where name="%COMPUTERNAME%" call rename name="%newName%"
 
 ECHO %COMPUTERNAME%
