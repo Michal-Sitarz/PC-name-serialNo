@@ -28,13 +28,14 @@ FOR /f "tokens=2 delims==" %%m IN ('wmic bios get manufacturer /value ^| FIND "=
 REM // set the right prefix for corresponding manufacturer,
 REM // if accidentally used other than approved manufacturers, then use "Other" as a prefix
 
-IF %manufacturer% == HP (
+IF "%manufacturer%" == "HP" (
 	SET prefix=H
-	) ELSE IF %manufacturer% == Dell (
+	) ELSE IF "%manufacturer%" == "Dell Inc." (
 			SET prefix=D
 			) ELSE (
 				SET prefix=Other
 				) 
+
 
 REM // merge prefix with generated serial number
 SET serial=%prefix%%serial%
